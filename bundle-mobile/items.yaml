@@ -8,7 +8,7 @@ items:
         name: "mobile-app-build"
         displayName: "Mobile App - Build & Unit Test"
         definition:
-          cps:
+          cpsFlowDefinition:
             script: |
               pipeline {
                 agent { label 'mobile' }
