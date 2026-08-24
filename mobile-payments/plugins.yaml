@@ -1,0 +1,19 @@
+plugins:
+  - id: "git"
+  - id: "workflow-aggregator"
+  - id: "workflow-multibranch"
+  - id: "pipeline-stage-view"
+  - id: "credentials-binding"
+  - id: "role-strategy"
+  - id: "gradle"
+  - id: "android-lint"
+  - id: "junit"
+  - id: "htmlpublisher"
+  - id: "pipeline-utility-steps"
+  - id: "audit-trail"
+
+# Mobile's catalog reflects app build/test tooling (gradle, android-lint,
+# htmlpublisher for test reports) - distinct from payments and platform.
+# This is the "aha" plugin-sprawl slide: three teams, three genuinely
+# different but centrally-governed plugin sets, all visible from one
+# Operations Center view instead of three unknown snowflake Jenkins boxes.

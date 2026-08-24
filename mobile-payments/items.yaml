@@ -1,0 +1,20 @@
+items:
+  - kind: "folder"
+    name: "mobile"
+    displayName: "Mobile Team"
+    description: "Mobile app build, test, and release pipelines."
+    items:
+      - kind: "pipeline"
+        name: "mobile-app-build"
+        displayName: "Mobile App - Build & Unit Test"
+        definition:
+          cps:
+            script: |
+              pipeline {
+                agent { label 'mobile' }
+                stages {
+                  stage('Build') { steps { echo 'gradle assembleDebug...' } }
+                  stage('Test')  { steps { echo 'gradle testDebugUnitTest...' } }
+                }
+              }
+            sandbox: true

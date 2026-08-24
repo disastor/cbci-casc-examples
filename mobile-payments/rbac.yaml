@@ -1,0 +1,40 @@
+roles:
+  global:
+    - name: "controller-admin"
+      description: "Full administrative rights on this controller"
+      permissions:
+        - "Overall/Administer"
+      entries:
+        - group: "mobile-controller-admins"
+
+    - name: "authenticated-baseline"
+      description: "Minimum baseline so any authenticated user can see the controller exists"
+      permissions:
+        - "Overall/Read"
+      entries:
+        - group: "authenticated"
+
+  items:
+    - name: "mobile-folder-developer"
+      description: "Mobile developer: build, read, configure their own pipelines"
+      pattern: "mobile/.*"
+      permissions:
+        - "Job/Build"
+        - "Job/Read"
+        - "Job/Configure"
+        - "Job/Workspace"
+      entries:
+        - group: "mobile-developers"
+
+    - name: "mobile-folder-viewer"
+      description: "Read-only: product/QA stakeholders checking build status"
+      pattern: "mobile/.*"
+      permissions:
+        - "Job/Read"
+      entries:
+        - group: "mobile-viewers"
+
+# Demo talking point: mobile only needs a two-tier model (developer +
+# viewer) versus payments' three-tier model. RBAC bundles let each team
+# have exactly the granularity they need instead of a one-size-fits-all
+# permission scheme.

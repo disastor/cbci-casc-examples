@@ -1,0 +1,12 @@
+jenkins:
+  systemMessage: "Mobile Team Controller - managed centrally via Operations Center CasC bundle 'bundle-mobile'. Do not edit configuration directly on this controller."
+  numExecutors: 2
+  labelString: "mobile linux"
+  mode: NORMAL
+  # Authorization is intentionally NOT set here. The rbac.yaml component
+  # of this bundle owns the Role-Based Authorization Strategy config and
+  # will configure it automatically when the bundle is applied.
+
+unclassified:
+  location:
+    url: "https://ops-center.example.com/mobile/"
