@@ -1,0 +1,51 @@
+roles:
+  global:
+    - name: "controller-admin"
+      description: "Full administrative rights on this controller"
+      permissions:
+        - "Overall/Administer"
+      entries:
+        - group: "payments-controller-admins"
+
+    - name: "authenticated-baseline"
+      description: "Minimum baseline so any authenticated user can see the controller exists"
+      permissions:
+        - "Overall/Read"
+      entries:
+        - group: "authenticated"
+
+  items:
+    - name: "payments-folder-lead"
+      description: "Team lead: configure jobs, manage credentials, view everything in the payments folder"
+      pattern: "payments/.*"
+      permissions:
+        - "Job/Build"
+        - "Job/Read"
+        - "Job/Configure"
+        - "Job/Cancel"
+        - "Job/Workspace"
+        - "Credentials/View"
+      entries:
+        - group: "payments-leads"
+
+    - name: "payments-folder-developer"
+      description: "Developer: can build and read jobs, cannot reconfigure pipelines or touch credentials"
+      pattern: "payments/.*"
+      permissions:
+        - "Job/Build"
+        - "Job/Read"
+        - "Job/Workspace"
+      entries:
+        - group: "payments-developers"
+
+    - name: "payments-folder-viewer"
+      description: "Read-only: stakeholders who just need visibility into build status"
+      pattern: "payments/.*"
+      permissions:
+        - "Job/Read"
+      entries:
+        - group: "payments-viewers"
+
+# Demo talking point: three roles instead of "admin or nothing." Map
+# payments-leads / payments-developers / payments-viewers to real AD/SAML
+# groups in production instead of local Jenkins groups.

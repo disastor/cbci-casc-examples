@@ -1,0 +1,16 @@
+plugins:
+  - id: "git"
+  - id: "workflow-aggregator"
+  - id: "workflow-multibranch"
+  - id: "pipeline-stage-view"
+  - id: "credentials-binding"
+  - id: "role-strategy"
+  - id: "junit"
+  - id: "timestamper"
+  - id: "ws-cleanup"
+  - id: "pipeline-utility-steps"
+  - id: "audit-trail"
+
+# Payments is the most compliance-sensitive team, so this catalog is
+# intentionally the leanest of the three - no generic-webhook-trigger,
+# no arbitrary scripting plugins, and audit-trail is mandatory here.

@@ -1,0 +1,20 @@
+items:
+  - kind: "folder"
+    name: "payments"
+    displayName: "Payments Team"
+    description: "All payments team pipelines live under this folder for RBAC scoping."
+    items:
+      - kind: "pipeline"
+        name: "payments-api-build"
+        displayName: "Payments API - Build & Test"
+        definition:
+          cps:
+            script: |
+              pipeline {
+                agent { label 'payments' }
+                stages {
+                  stage('Build') { steps { echo 'Building payments-api...' } }
+                  stage('Test')  { steps { echo 'Running unit tests...' } }
+                }
+              }
+            sandbox: true
