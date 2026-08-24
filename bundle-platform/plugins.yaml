@@ -1,0 +1,18 @@
+plugins:
+  - id: "git"
+  - id: "workflow-aggregator"
+  - id: "workflow-multibranch"
+  - id: "pipeline-stage-view"
+  - id: "credentials-binding"
+  - id: "role-strategy"
+  - id: "kubernetes"
+  - id: "docker-workflow"
+  - id: "terraform"
+  - id: "ansible"
+  - id: "ssh-agent"
+  - id: "pipeline-utility-steps"
+  - id: "audit-trail"
+
+# Platform team owns shared infra tooling, so this catalog is broader
+# than payments (adds kubernetes/docker/terraform/ansible) but still
+# governed centrally - no ad-hoc plugin installs on the controller itself.

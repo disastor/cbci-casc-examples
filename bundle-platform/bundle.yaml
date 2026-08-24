@@ -1,0 +1,9 @@
+apiVersion: "2"
+id: "bundle-platform"
+description: "CasC bundle for the Platform/Infra team controller - demo baseline"
+version: "1"
+components:
+  - "jenkins.yaml"
+  - "plugins.yaml"
+  - "items.yaml"
+  - "rbac.yaml"

@@ -1,0 +1,20 @@
+items:
+  - kind: "folder"
+    name: "platform"
+    displayName: "Platform / Infra Team"
+    description: "Shared infrastructure pipelines - Terraform plans, cluster upgrades, shared library maintenance."
+    items:
+      - kind: "pipeline"
+        name: "infra-terraform-plan"
+        displayName: "Infra - Terraform Plan"
+        definition:
+          cps:
+            script: |
+              pipeline {
+                agent { label 'platform' }
+                stages {
+                  stage('Init') { steps { echo 'terraform init...' } }
+                  stage('Plan') { steps { echo 'terraform plan...' } }
+                }
+              }
+            sandbox: true
