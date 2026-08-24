@@ -4,7 +4,7 @@ jenkins:
   labelString: "mobile linux"
   mode: NORMAL
   # Required for CasC-configured RBAC (rbac.yaml) to take effect.
-  authorizationStrategy: "cloudBeesRoleBasedAccessControl"
+  #authorizationStrategy: "cloudBeesRoleBasedAccessControl"
 
 unclassified:
   location:

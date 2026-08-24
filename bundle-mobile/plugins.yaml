@@ -9,6 +9,8 @@ plugins:
   - id: "cloudbees-casc-items-api"
   - id: "cloudbees-casc-items-commons"
   - id: "cloudbees-casc-items-controller"
+  - id: "cloudbees-folder"
+  - id: "cloudbees-folders-plus"
   - id: "nectar-rbac"
   - id: "gradle"
   - id: "android-lint"
