@@ -24,7 +24,7 @@ groups:
     members:
       users:
         - "admin"
-        - "disastor"
+        - "dastor"
     roles:
       - name: "controller-admin"
         grantedAt: current
