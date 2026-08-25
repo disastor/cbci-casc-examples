@@ -1,10 +1,10 @@
 jenkins:
-  systemMessage: "Mobile Team Controller - We created this with a bundle!"
+  systemMessage: "Mobile Team Controller - managed centrally via Operations Center CasC bundle 'bundle-mobile'. Do not edit configuration directly on this controller."
   numExecutors: 2
   labelString: "mobile linux"
   mode: NORMAL
   # Required for CasC-configured RBAC (rbac.yaml) to take effect.
-  #authorizationStrategy: "cloudBeesRoleBasedAccessControl"
+  authorizationStrategy: "cloudBeesRoleBasedAccessControl"
 
 unclassified:
   location:
