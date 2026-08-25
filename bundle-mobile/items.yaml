@@ -29,7 +29,7 @@ items:
           cpsFlowDefinition:
             script: |
               pipeline {
-                agent { label 'mobile' }
+                agent any
                 stages {
                   stage('Build') { steps { echo 'gradle assembleDebug...' } }
                   stage('Test')  { steps { echo 'gradle testDebugUnitTest...' } }

@@ -1,5 +1,5 @@
 jenkins:
-  systemMessage: "Mobile Team Controller - managed centrally via Operations Center CasC bundle 'bundle-mobile'. Do not edit configuration directly on this controller."
+  systemMessage: "Mobile Team Controller - We created this with a bundle!"
   numExecutors: 2
   labelString: "mobile linux"
   mode: NORMAL
