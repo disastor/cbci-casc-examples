@@ -1,17 +1,41 @@
+# Allow CasC to create/update items cleanly
+removeStrategy:
+  rbac: SYNC
+  items: NONE
+
 items:
   - kind: "folder"
     name: "payments"
     displayName: "Payments Team"
     description: "All payments team pipelines live under this folder for RBAC scoping."
+    groups:
+      - name: "Payments Leads"
+        members:
+          external_groups:
+            - "payments-leads"
+        roles:
+          - name: "payments-lead"
+      - name: "Payments Developers"
+        members:
+          external_groups:
+            - "payments-developers"
+        roles:
+          - name: "payments-developer"
+      - name: "Payments Viewers"
+        members:
+          external_groups:
+            - "payments-viewers"
+        roles:
+          - name: "payments-viewer"
     items:
       - kind: "pipeline"
         name: "payments-api-build"
         displayName: "Payments API - Build & Test"
         definition:
-          cps:
+          cpsFlowDefinition:
             script: |
               pipeline {
-                agent { label 'payments' }
+                agent any
                 stages {
                   stage('Build') { steps { echo 'Building payments-api...' } }
                   stage('Test')  { steps { echo 'Running unit tests...' } }

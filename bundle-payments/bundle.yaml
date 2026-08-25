@@ -1,9 +1,12 @@
 apiVersion: "2"
 id: "bundle-payments"
-description: "CasC bundle for the Payments team controller - demo baseline"
-version: "1"
-components:
+version: "2"
+description: "CasC bundle for the payments team controller - demo baseline"
+jcasc:
   - "jenkins.yaml"
+plugins:
   - "plugins.yaml"
+items:
   - "items.yaml"
+rbac:
   - "rbac.yaml"
