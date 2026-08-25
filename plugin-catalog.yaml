@@ -1,0 +1,46 @@
+type: "plugin-catalog"
+version: "1"
+name: "platform-team-catalog"
+displayName: "Platform Team Plugin Catalog"
+configurations:
+  - description: >-
+      Plugins outside the CloudBees Assurance Program (CAP) that the
+      Platform team is approved to use. Anything listed here can be
+      installed via plugins.yaml even though CloudBees doesn't curate
+      or test it directly - the org is explicitly taking that on.
+
+    includePlugins:
+      # Example: a community (non-CAP) plugin, pinned to a specific
+      # version rather than "whatever the Update Center has today."
+      # This is exactly the Appaloosa plugin from the live demo -
+      # shown here as how you'd pin it precisely instead of floating.
+      appaloosa-plugin:
+        version: "1.4.6"
+
+    # Beekeeper exceptions: let a specific CAP plugin stay on a
+    # different (typically older) version than CloudBees' Beekeeper
+    # Upgrade Assistant would otherwise enforce - e.g. during a
+    # migration window, or while validating a newer version in a
+    # test environment before rolling it out org-wide.
+    beekeeperExceptions:
+      support-core:
+        version: "2.70"
+
+# --- Demo talking points ---
+#
+# 1. plugins.yaml declares WHAT a bundle wants installed.
+#    plugin-catalog.yaml is the governance layer that decides WHAT'S
+#    ALLOWED to be installed in the first place - including pinning
+#    exact versions and explicitly approving non-CAP plugins.
+#
+# 2. At scale, this file is typically generated from - or points to -
+#    an internal, company-controlled artifact repository that mirrors
+#    the public CloudBees plugin repo. That's what makes air-gapped
+#    or "no direct internet access" environments possible: every
+#    controller in the cluster only ever pulls from the internal,
+#    vetted source, never the open internet.
+#
+# 3. This file only applies to CONTROLLER CasC bundles (not the
+#    operations center bundle), and only affects non-CAP plugins and
+#    Beekeeper exceptions - core CAP plugins are already governed and
+#    tested by CloudBees without needing this file at all.
