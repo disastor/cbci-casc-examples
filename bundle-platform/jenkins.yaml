@@ -3,9 +3,8 @@ jenkins:
   numExecutors: 2
   labelString: "platform linux"
   mode: NORMAL
-  # Authorization is intentionally NOT set here. The rbac.yaml component
-  # of this bundle owns the Role-Based Authorization Strategy config and
-  # will configure it automatically when the bundle is applied.
+  # Required for CasC-configured RBAC (rbac.yaml) to take effect.
+  authorizationStrategy: "cloudBeesRoleBasedAccessControl"
 
 unclassified:
   location:
