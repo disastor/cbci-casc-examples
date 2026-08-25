@@ -18,6 +18,7 @@ plugins:
   - id: "htmlpublisher"
   - id: "pipeline-utility-steps"
   - id: "audit-trail"
+  - id: "appaloosa-plugin"
 
 # Mobile's catalog reflects app build/test tooling (gradle, android-lint,
 # htmlpublisher for test reports) - distinct from payments and platform.
