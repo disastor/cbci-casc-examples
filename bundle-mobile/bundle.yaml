@@ -1,6 +1,6 @@
 apiVersion: "2"
 id: "bundle-mobile"
-version: "9"
+version: "10"
 description: "CasC bundle for the mobile team controller - demo baseline"
 jcasc:
   - "jenkins.yaml"
@@ -8,5 +8,5 @@ plugins:
   - "plugins.yaml"
 items:
   - "items.yaml"
-rbac:
-  - "rbac.yaml"
+#rbac:
+  #- "rbac.yaml"
